@@ -1,1 +1,0 @@
-"""OPNsense MCP starter package."""
