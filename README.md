@@ -19,31 +19,49 @@ It shows how a custom MCP server can sit between an LLM and systems like OPNsens
 
 ## 🚀 Quick Start
 
+This repo is organized around four practical starting paths.
+
+**🌱 Start Here**
+
+Get one safe first win with sample data and a minimal starter.
+
 If you want the fastest path:
 
-1. Read [Quick Start](./docs/QUICK_START.md).
-2. Start with [python-minimal](./templates/python-minimal/README.md).
-3. Run it with sample data first.
-4. Read [SECURITY.md](./SECURITY.md) before wiring in any live systems.
+- Read [Quick Start](./docs/QUICK_START.md).
+- Start with [python-minimal](./templates/python-minimal/README.md).
+- Run it with sample data first.
+- Read [SECURITY.md](./SECURITY.md) before wiring in any live systems.
+
+**✨ Lazy but Cautious**
+
+Let your LLM scaffold a small read-only server, then review it carefully.
 
 If you want the lazy but cautious path:
 
-1. Read [Starter Prompts](./docs/STARTER_PROMPTS.md).
-2. Let your LLM scaffold a small read-only starter for you.
-3. Review the code before running it.
-4. Verify the server is active in your client with [Interact With Your MCP Server](./docs/INTERACT_WITH_MCP.md).
+- Read [Starter Prompts](./docs/STARTER_PROMPTS.md).
+- Let your LLM scaffold a small read-only starter for you.
+- Review the code before running it.
+- Verify the server is active in your client with [Interact With Your MCP Server](./docs/INTERACT_WITH_MCP.md).
+
+**🧱 Trusted Public MCP Path**
+
+Start with official SDKs and reference servers before building your own.
 
 If you want a simpler path before building your own server:
 
-1. Read [Trusted Public MCP Path](./docs/TRUSTED_PUBLIC_MCP_PATH.md).
-2. Start with official MCP SDKs or reference servers.
-3. Come back here when you are ready to build a custom server around your own environment.
+- Read [Trusted Public MCP Path](./docs/TRUSTED_PUBLIC_MCP_PATH.md).
+- Start with official MCP SDKs or reference servers.
+- Come back here when you are ready to build a custom server around your own environment.
+
+**🛠️ Advanced Custom Server Path**
+
+Build a custom MCP server around your own infrastructure and workflow.
 
 If you want the deeper architecture and safety path:
 
-1. Read [Advanced Custom Server Path](./docs/ADVANCED_CUSTOM_SERVER_PATH.md).
-2. Read [DEPLOYMENT.md](./DEPLOYMENT.md).
-3. Read [SECURITY.md](./SECURITY.md).
+- Read [Advanced Custom Server Path](./docs/ADVANCED_CUSTOM_SERVER_PATH.md).
+- Read [DEPLOYMENT.md](./DEPLOYMENT.md).
+- Read [SECURITY.md](./SECURITY.md).
 
 ## Environment Notes
 
