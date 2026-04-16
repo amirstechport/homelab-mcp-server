@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "homelab-observability-starter": {
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp",
+        "run",
+        "/absolute/path/to/templates/python-observability/src/homelab_mcp_observability/server.py"
+      ]
+    }
+  }
+}

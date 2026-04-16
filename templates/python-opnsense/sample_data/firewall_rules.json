@@ -1,0 +1,26 @@
+[
+  {
+    "interface": "lan",
+    "action": "pass",
+    "source": "LAN net",
+    "destination": "any",
+    "description": "Allow LAN outbound",
+    "enabled": true
+  },
+  {
+    "interface": "vpn",
+    "action": "pass",
+    "source": "VPN net",
+    "destination": "LAN reverse proxy",
+    "description": "Allow VPN media access",
+    "enabled": true
+  },
+  {
+    "interface": "guest",
+    "action": "block",
+    "source": "Guest net",
+    "destination": "RFC1918",
+    "description": "Block guest east-west access",
+    "enabled": true
+  }
+]

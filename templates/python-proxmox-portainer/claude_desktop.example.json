@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "homelab-proxmox-portainer-starter": {
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp",
+        "run",
+        "/absolute/path/to/templates/python-proxmox-portainer/src/homelab_mcp_proxmox_portainer/server.py"
+      ]
+    }
+  }
+}
