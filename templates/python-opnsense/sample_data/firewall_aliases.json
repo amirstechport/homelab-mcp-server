@@ -1,0 +1,29 @@
+[
+  {
+    "name": "CORE_HOSTS",
+    "type": "host",
+    "description": "Primary infrastructure nodes",
+    "entries": [
+      "172.21.16.210",
+      "172.21.16.211",
+      "172.21.16.212"
+    ]
+  },
+  {
+    "name": "VPN_DNS",
+    "type": "host",
+    "description": "VPN DNS path",
+    "entries": [
+      "172.21.16.8"
+    ]
+  },
+  {
+    "name": "MEDIA_BACKENDS",
+    "type": "host",
+    "description": "Media services",
+    "entries": [
+      "172.21.16.115",
+      "172.21.16.24"
+    ]
+  }
+]

@@ -1,0 +1,17 @@
+[
+  {
+    "level": "warn",
+    "service": "reverse-proxy",
+    "message": "backend responded slowly"
+  },
+  {
+    "level": "error",
+    "service": "monitoring",
+    "message": "datasource timeout"
+  },
+  {
+    "level": "info",
+    "service": "firewall",
+    "message": "config backup completed"
+  }
+]

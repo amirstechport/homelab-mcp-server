@@ -1,0 +1,23 @@
+[
+  {
+    "name": "docker-a",
+    "type": "vm",
+    "status": "running",
+    "node": "mprox",
+    "ip": "172.21.16.211"
+  },
+  {
+    "name": "backup",
+    "type": "vm",
+    "status": "running",
+    "node": "mprox",
+    "ip": "172.21.16.212"
+  },
+  {
+    "name": "adguard-lan",
+    "type": "lxc",
+    "status": "running",
+    "node": "mprox",
+    "ip": "172.21.16.105"
+  }
+]

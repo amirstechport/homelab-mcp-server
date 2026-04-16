@@ -1,0 +1,22 @@
+{
+  "routes": [
+    {
+      "name": "grafana",
+      "domain": "grafana.example.internal",
+      "target": "http://172.21.16.211:3000",
+      "type": "traefik"
+    },
+    {
+      "name": "opnsense",
+      "domain": "firewall.example.internal",
+      "target": "https://172.21.16.10",
+      "type": "traefik"
+    },
+    {
+      "name": "media",
+      "domain": "media.example.internal",
+      "target": "http://172.21.16.115:8096",
+      "type": "caddy"
+    }
+  ]
+}

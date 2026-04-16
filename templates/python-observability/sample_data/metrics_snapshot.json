@@ -1,0 +1,17 @@
+[
+  {
+    "name": "node_cpu_usage_percent",
+    "target": "docker-a",
+    "value": 18.2
+  },
+  {
+    "name": "node_memory_usage_percent",
+    "target": "backup",
+    "value": 41.7
+  },
+  {
+    "name": "gateway_rtt_ms",
+    "target": "wan",
+    "value": 9.4
+  }
+]
