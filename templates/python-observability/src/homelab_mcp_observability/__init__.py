@@ -1,1 +1,0 @@
-"""Observability MCP starter package."""
