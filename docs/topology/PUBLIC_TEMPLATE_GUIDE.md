@@ -10,6 +10,8 @@ This is the public-safe topology entry point for the repo.
 
 This PNG is the sanitized public topology artifact derived from the private working topology. It preserves the general structure, layout style, and MCP-driven documentation story without exposing private hostnames, domains, or internal IP space.
 
+The topology graphic itself was assembled in Excalidraw, then exported as a public-safe PNG for the repo.
+
 ## What Was Sanitized
 
 - hostnames were replaced with generic labels
@@ -27,7 +29,7 @@ This PNG is the sanitized public topology artifact derived from the private work
 
 ## Suggested Replacement Pattern
 
-- `Protectli Firewall / OPNsense` -> your firewall hardware and platform
+- `Firewall / OPNsense` -> your firewall hardware and platform
 - `Hypervisor B / Secondary Proxmox` -> your virtualization node
 - `Docker Host A / core services` -> your main container host
 - `Jump Host / management` -> your automation or bastion host

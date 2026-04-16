@@ -1,15 +1,49 @@
 # Homelab MCP Server
 
-The **Homelab MCP Server** is a public reference project for building MCP-powered homelab discovery, documentation, and audit workflows.
+The **Homelab MCP Server** is a public reference repo for MCP-powered homelab discovery, documentation, and audit workflows.
 
-It is designed to show how a custom MCP server can sit between Large Language Models and infrastructure systems like OPNsense, Proxmox, Portainer, and reverse proxies while staying grounded in read-only discovery and strong safety controls.
+It shows how a custom MCP server can sit between an LLM and systems like OPNsense, Proxmox, Portainer, and reverse proxies while staying grounded in read-only discovery and strong safety controls.
 
-This repo is intentionally structured as:
+## What This Repo Is
 
-- a practical explanation of the use case
-- a deployment and safety guide
+- a reference repo for a real homelab MCP use case
 - a set of reusable Python starter templates
-- example markdown outputs and topology artifacts
+- a few public-safe example outputs
+- a deployment and safety guide for doing this responsibly
+
+## Who This Is For
+
+- people who want to try MCP against homelab-style data quickly
+- people who want a starting point for OPNsense, Proxmox, Portainer, or observability workflows
+- people who want a safer, read-only-first pattern instead of exposing raw infrastructure access
+
+## 🚀 Quick Start
+
+If you want the fastest path:
+
+1. Read [Quick Start](./docs/QUICK_START.md).
+2. Start with [python-minimal](./templates/python-minimal/README.md).
+3. Run it with sample data first.
+4. Read [SECURITY.md](./SECURITY.md) before wiring in any live systems.
+
+If you want the lazy but cautious path:
+
+1. Read [Starter Prompts](./docs/STARTER_PROMPTS.md).
+2. Let your LLM scaffold a small read-only starter for you.
+3. Review the code before running it.
+4. Verify the server is active in your client with [Interact With Your MCP Server](./docs/INTERACT_WITH_MCP.md).
+
+If you want a simpler path before building your own server:
+
+1. Read [Trusted Public MCP Path](./docs/TRUSTED_PUBLIC_MCP_PATH.md).
+2. Start with official MCP SDKs or reference servers.
+3. Come back here when you are ready to build a custom server around your own environment.
+
+If you want the deeper architecture and safety path:
+
+1. Read [Advanced Custom Server Path](./docs/ADVANCED_CUSTOM_SERVER_PATH.md).
+2. Read [DEPLOYMENT.md](./DEPLOYMENT.md).
+3. Read [SECURITY.md](./SECURITY.md).
 
 ## Environment Notes
 
@@ -46,38 +80,19 @@ They were shaped around Linux environments, especially Debian and Ubuntu systems
 - 8 GB RAM or more
 - about 5 GB free disk space if you plan to keep multiple virtual environments, exported artifacts, and topology assets
 
-## Validation Note
+## Validated Starter
 
 The minimal starter was validated on April 15, 2026 on a small Ubuntu 22.04 VM with 2 vCPUs, about 4 GB RAM, and about 27 GB free disk using a user-space `uv` install plus Python 3.11. The published flow worked for a basic MCP smoke test, including a real client session that listed tools and called the sample read-only tools successfully.
 
 That size is good enough for basic starter validation, but it is not ideal for heavier local agent workflows or multiple services at once.
 
-## Start Here
+## What You Can Build
 
-If you are new to the repo, use this path:
-
-1. Read [USE_CASES.md](./USE_CASES.md) to understand what the MCP server is meant to do.
-2. Read [SECURITY.md](./SECURITY.md) before connecting any real infrastructure.
-3. Read [DEPLOYMENT.md](./DEPLOYMENT.md) to choose a safe deployment model.
-4. Use [templates/README.md](./templates/README.md) to choose the right starter.
-
-## 🏗️ Architecture & Topology
-
-- **Firewall**: e.g., OPNsense / pfSense / Unifi (Management via secure VPN like Tailscale / WireGuard)
-- **Jump-Host Security**: A Management Jump-Host acts as the exclusive gateway to internal compute nodes.
-- **Compute Cluster**: Multiple virtualization nodes (e.g., Proxmox / ESXi)
-- **Container Control Plane**: Container orchestrator instance (e.g., Portainer)
-
-## ⚙️ Core Capabilities
-
-This server is equipped with a suite of tools for deep infrastructure discovery:
-
-1. **Firewall Perimeter Audit**: Extracts filter rules, NAT rules, aliases, and backup configurations directly from your firewall's REST API over a secure VPN (e.g., Tailscale / WireGuard).
-2. **Virtualization Discovery**: SSHes via the management jump-host to map VM/container networks, interfaces, and MAC addresses.
-3. **Container Mapping**: Iterates across distinct active environment endpoints to map running container services.
-4. **Reverse Proxy Discovery**: Connects to nodes running your reverse proxies (e.g., Traefik, Caddy, Nginx Proxy Manager) to pull live routing configurations.
-5. **Traffic & Observability**: Integrates with monitoring stacks (e.g., Prometheus, Grafana, Loki, Uptime Kuma).
-6. **Infrastructure-as-Code Parsing**: Dynamically reads configuration files (e.g., Ansible `inventory.ini`) to map hosts, groups, and IP addresses without relying on hardcoded context.
+- firewall and alias summaries from OPNsense-style data
+- VM and container inventory from Proxmox and Portainer-style data
+- reverse proxy and service maps
+- observability summaries from logs, metrics, and monitor exports
+- markdown outputs for topology, host inventory, and cutover-style notes
 
 ## What This Repo Is Not
 
@@ -87,28 +102,45 @@ This server is equipped with a suite of tools for deep infrastructure discovery:
 
 It is a public-safe reference implementation and starter-kit repo.
 
-## 📚 Documentation Index
+## ✨ A Good Shortcut
 
-To see exactly what this server can do and how to run it safely, dive into the core documentation:
-* [**Use Cases & Feature Highlights**](./USE_CASES.md) - Deep dive into 7 real-world scenarios (including Interactive Troubleshooting and CI/CD Drift Detection).
-* [**Deployment & Network Placement Guide**](./DEPLOYMENT.md) - Step-by-step instructions on setting up the server locally or tunneling it securely over SSH.
-* [**Security & Safety Guidelines**](./SECURITY.md) - **Mandatory reading.** How to safely implement "Dry-Run" constraints and Read-Only API tokens to prevent hallucinated data destruction.
-* [**Example Mockups (docs/examples/)**](./docs/examples/) - See exactly what the AI-generated Network Maps, Container Inventories, and Cutover Reports look like!
-* [**Template Index**](./templates/README.md) - Choose the right starter based on whether you want a minimal, OPNsense-first, or Proxmox/Portainer-first MCP server.
+If building the first version by hand feels like too much friction, a reasonable shortcut is to let your LLM scaffold a very small MCP server for you.
 
-## 🧰 Starter Templates
+That can be a good onboarding move if you keep it:
 
-If you want to build your own MCP server instead of just reading the concept docs, start here:
+- read-only
+- sample-data first
+- small enough to review line by line
+- limited to one or two safe tools at first
 
-* [**Template Index**](./templates/README.md) - Start here if you want help deciding which starter fits your use case.
+Use [Starter Prompts](./docs/STARTER_PROMPTS.md) for that path, then use [Interact With Your MCP Server](./docs/INTERACT_WITH_MCP.md) to confirm the server is actually active in your client.
+
+## 🧭 Choose Your Path
+
+- [Quick Start](./docs/QUICK_START.md)
+- [Starter Prompts](./docs/STARTER_PROMPTS.md)
+- [Interact With Your MCP Server](./docs/INTERACT_WITH_MCP.md)
+- [Trusted Public MCP Path](./docs/TRUSTED_PUBLIC_MCP_PATH.md)
+- [Advanced Custom Server Path](./docs/ADVANCED_CUSTOM_SERVER_PATH.md)
+- [Choose a Starter](./templates/README.md)
+- [Deployment Guide](./DEPLOYMENT.md)
+- [Security Guide](./SECURITY.md)
+- [Use Cases](./USE_CASES.md)
+- [Example Outputs](./docs/examples/)
+
+## Starter Templates
+
+If you want to build your own MCP server, start here:
+
+* [**Choose a Starter**](./templates/README.md) - Quick path for choosing the right starting point.
 * [**Python Minimal MCP Starter**](./templates/python-minimal/README.md) - A runnable Python starter using the official MCP Python SDK, env example, sample data, and read-only homelab-style tools.
 * [**Python OPNsense MCP Starter**](./templates/python-opnsense/README.md) - A firewall-first starter focused on read-only OPNsense rule and alias discovery from exported data.
 * [**Python Proxmox + Portainer MCP Starter**](./templates/python-proxmox-portainer/README.md) - A virtualization/container-first starter for Proxmox guest inventory and Portainer container discovery.
 * [**Python Observability MCP Starter**](./templates/python-observability/README.md) - An observability-first starter for metrics, logs, and service-health summaries.
 
-These starters are meant to be the copy-and-adapt path for users who want to wire in their own OPNsense, Proxmox, Portainer, Traefik, or Caddy environment later.
+These starters are the copy-and-adapt path for users who want to wire in their own environment later.
 
-## 🤖 MCP Client Options
+## MCP Client Options
 
 Your MCP server needs a host application that can connect to it. Good options include:
 
@@ -118,29 +150,14 @@ Your MCP server needs a host application that can connect to it. Good options in
 * **VS Code with GitHub Copilot Agent mode** - Useful if your team already works inside VS Code and wants MCP servers available there.
 * **Google Antigravity** - A good fit if you want an agent-first editor that can connect to MCP servers.
 
-The exact model you use depends on the client and your plan. A simple rule is:
+## 🔒 Safety First
 
-* use the strongest coding-capable model available in your chosen client for implementation tasks
-* use a cheaper/faster model for routine documentation refreshes or inventory reads
-* keep infrastructure tools read-only regardless of which model is attached
+Read [SECURITY.md](./SECURITY.md) before connecting any live infrastructure. The short version:
 
-## 🚀 Setup & Deployment
-
-Because this server requires high-level API credentials to your core infrastructure, **where** you host this server (e.g., locally over a VPN vs. an Always-on internal Jump-Host) is a critical security decision.
-
-Please read the complete [**Deployment & Network Placement Guide**](./DEPLOYMENT.md) for step-by-step setup instructions and architectural teardowns.
-
-## ⚠️ Disclaimer & Safety Guidelines
-
-**WARNING**: Giving an LLM agent access to your core infrastructure APIs and SSH jump-hosts carries massive risks. If an LLM misinterprets a prompt or hallucinates a command, it could accidentally perform destructive actions.
-
-Please treat this repository purely as an **educational example** and read our full [**Security & Safety Guidelines (SECURITY.md)**](./SECURITY.md) before exposing your homelab.
-
-The core tenets of MCP safety include:
-* **Read-Only Credentials**: Always issue strictly scoped, read-only API tokens.
-* **Require Human Approvals**: For any tool that modifies state (e.g., spinning down a container or changing a firewall rule), implement a strict "dry-run" or manual approval confirmation prompt in the MCP tool logic.
-* **Beware of Data Deletion**: Never provide an MCP tool with raw `rm -rf` SSH capabilities or raw SQL `DROP` commands without extensive constraints. A misunderstanding could result in wiping an entire Proxmox node or dropping your Nextcloud database.
-* **Rate Limiting**: Ensure your tools have timeouts and rate limits to prevent an LLM from accidentally getting stuck in a loop and DDoSing your own firewall API.
+* use read-only credentials
+* do sample-data testing first
+* avoid raw shell access
+* require explicit approval for any state-changing action
 
 ---
-*For detailed scenarios on how this server updates the "Network Pulse" documentation and performs audits, refer to [USE_CASES.md](./USE_CASES.md).*
+*For deeper scenarios and architecture details, see [USE_CASES.md](./USE_CASES.md) and [DEPLOYMENT.md](./DEPLOYMENT.md).*

@@ -3,19 +3,19 @@
     {
       "name": "grafana",
       "domain": "grafana.example.internal",
-      "target": "http://172.21.16.211:3000",
+      "target": "https://grafana.example.internal",
       "type": "traefik"
     },
     {
-      "name": "opnsense",
+      "name": "firewall",
       "domain": "firewall.example.internal",
-      "target": "https://172.21.16.10",
+      "target": "https://firewall.example.internal",
       "type": "traefik"
     },
     {
       "name": "media",
       "domain": "media.example.internal",
-      "target": "http://172.21.16.115:8096",
+      "target": "https://media.example.internal",
       "type": "caddy"
     }
   ]

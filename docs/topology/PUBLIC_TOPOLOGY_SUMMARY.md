@@ -25,7 +25,7 @@ flowchart TD
     Media[Media Host]
     AI[AI Host]
     Blog[Blog VM]
-    VPN[WireGuard EXT Host]
+    VPN[Remote Access Host]
     DNSL[LAN DNS]
     DNSE[VPN DNS]
     Jump[Jump Host]
@@ -66,4 +66,6 @@ flowchart TD
 
 ## Purpose
 
-Use this summary when you want to explain the workflow publicly without exposing private lab details. Use the private Excalidraw when you need the accurate internal operating map.
+Use this summary when you want to explain the workflow publicly without exposing private lab details.
+
+The topology image was created in Excalidraw and shared here as a public-safe PNG export rather than as an editable working source file.

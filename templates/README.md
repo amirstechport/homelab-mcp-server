@@ -1,6 +1,10 @@
-# Template Index
+# 🧭 Choose a Starter
 
-This page helps you choose the right starting point for your MCP server.
+This page helps you choose the fastest starting point for your MCP server.
+
+## Quick Recommendation
+
+If you are new to MCP, start with `python-minimal`.
 
 ## Starter Flow
 
@@ -59,6 +63,10 @@ Use:
 1. Start with `python-minimal` if you have never built an MCP server before.
 2. Move to `python-opnsense`, `python-proxmox-portainer`, or `python-observability` once you know which system you want to model first.
 3. Merge patterns from multiple starters into your real server.
+
+## If You Do Not Want To Build a Custom Server First
+
+Read [Trusted Public MCP Path](../docs/TRUSTED_PUBLIC_MCP_PATH.md) first, then come back here when you are ready to build your own custom server.
 
 ## Common Rule Across All Templates
 

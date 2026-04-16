@@ -1,12 +1,12 @@
 [
   {
     "name": "node_cpu_usage_percent",
-    "target": "docker-a",
+    "target": "app-host",
     "value": 18.2
   },
   {
     "name": "node_memory_usage_percent",
-    "target": "backup",
+    "target": "backup-host",
     "value": 41.7
   },
   {

@@ -8,11 +8,11 @@
 |---|---|---|---|---|---|---|
 | `52f9a` | 🟢 PASS | TCP | `LAN net` | `*` | `443` | Allow HTTPS Outbound |
 | `18b4e` | 🔴 BLOCK | ANY | `Guest_VLAN` | `LAN net` | `*` | Isolate Guest Network |
-| `99c1d` | 🟢 PASS | UDP | `IoT_VLAN` | `10.0.0.53` | `53` | Allow DNS to AdGuard |
+| `99c1d` | 🟢 PASS | UDP | `IoT_VLAN` | `10.10.30.53` | `53` | Allow DNS to Resolver |
 
 ## 🚪 NAT Port Forwards
 
 | Interface | Protocol | Ext Port | Int IP | Int Port | Description |
 |---|---|---|---|---|---|
-| `WAN` | TCP/UDP | `32400` | `10.0.0.15` | `32400` | Plex Media Server |
-| `WAN` | TCP | `443` | `10.0.0.2` | `443` | Nginx Proxy Manager |
+| `WAN` | TCP/UDP | `32400` | `10.10.20.20` | `32400` | Media Service |
+| `WAN` | TCP | `443` | `10.10.20.21` | `443` | Reverse Proxy |

@@ -7,7 +7,7 @@ Because the MCP server requires high-level API access to your Firewall, Proxmox 
 ## Recommended Reading Order
 
 1. [Security & Safety Guidelines](./SECURITY.md)
-2. [Template Index](./templates/README.md)
+2. [Choose a Starter](./templates/README.md)
 3. The architecture choice below
 4. The starter setup steps in this file
 
@@ -115,7 +115,7 @@ cp .env.example .env
 
 If you are unsure which one to choose, use the template chooser:
 
-- [Template Index](./templates/README.md)
+- [Choose a Starter](./templates/README.md)
 
 ### 2. Install Dependencies
 The reusable starters in this repo are Python-based:

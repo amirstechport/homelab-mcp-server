@@ -2,19 +2,19 @@
   {
     "name": "traefik",
     "image": "traefik:v3",
-    "host": "docker-a",
+    "host": "app-host",
     "state": "running"
   },
   {
     "name": "grafana",
     "image": "grafana/grafana:latest",
-    "host": "docker-a",
+    "host": "app-host",
     "state": "running"
   },
   {
-    "name": "caddy-lan",
+    "name": "edge-proxy",
     "image": "caddy:latest",
-    "host": "pi-services",
+    "host": "edge-host",
     "state": "running"
   }
 ]

@@ -1,23 +1,23 @@
 [
   {
-    "name": "docker-a",
+    "name": "app-host",
     "type": "vm",
     "status": "running",
-    "node": "mprox",
-    "ip": "172.21.16.211"
+    "node": "node-a",
+    "ip": "10.10.20.10"
   },
   {
-    "name": "backup",
+    "name": "backup-host",
     "type": "vm",
     "status": "running",
-    "node": "mprox",
-    "ip": "172.21.16.212"
+    "node": "node-a",
+    "ip": "10.10.20.12"
   },
   {
-    "name": "adguard-lan",
+    "name": "dns-host",
     "type": "lxc",
     "status": "running",
-    "node": "mprox",
-    "ip": "172.21.16.105"
+    "node": "node-a",
+    "ip": "10.10.30.53"
   }
 ]
